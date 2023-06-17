@@ -1,6 +1,6 @@
 let express = require('express');
 let app = express();
-const port = process.env.PORT || 10000
+const port = process.env.PORT || 6000
 
 app.listen(port)
 
