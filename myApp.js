@@ -1,10 +1,11 @@
 let express = require('express');
 let app = express();
+const port = process.env.PORT || 10000
 
-console.log("Hello Express");
+app.listen(port)
 
 app.get('/', function(request, response) {
-  response.end("Hello Express")
+  response.sendFile(__dirname + '/views/index.html');
 })
 
 module.exports = app;
