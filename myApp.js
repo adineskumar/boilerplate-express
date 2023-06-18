@@ -1,6 +1,8 @@
 let express = require('express');
 let app = express();
+const json_data = {"message": "Hello json"}
 app.use(express.static(__dirname + '/'));
+
 
 
 app.get('/', function(request, response) {
@@ -8,7 +10,14 @@ app.get('/', function(request, response) {
 })
 
 app.get('/json', function (request, response) {
-  response.json({"message": "Hello json"})
+  if (process.env.MESSAGE_STYLE === 'uppercase')
+  {   
+    json_data['message'] = json_data['message'].toUpperCase()
+    console.log(json_data)
+    response.json(json_data)
+  } else {
+    response.json(json_data)
+  }
 })
 
 
