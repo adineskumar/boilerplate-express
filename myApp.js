@@ -13,11 +13,13 @@ app.get('/json', function (request, response) {
   if (process.env.MESSAGE_STYLE === 'uppercase')
   {   
     json_data['message'] = json_data['message'].toUpperCase()
+  } 
+  
+  if (process.env.MESSAGE_STYLE === 'lowercase') {
+    json_data['message'] = json_data['message'].toLowerCase()
+  }
     console.log(json_data)
     response.json(json_data)
-  } else {
-    response.json(json_data)
-  }
 })
 
 
